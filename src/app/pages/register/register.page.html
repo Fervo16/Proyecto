@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="form-wrap">
+      <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+        <ion-grid class="content-grid">
+          <!-- Nombre -->
+          <ion-item lines="none">
+            <ion-grid>
+              <ion-row class="label-wrap">
+                <ion-label>Nombre de usuario</ion-label>
+              </ion-row>
+              <ion-row>
+                <ion-input formControlName="username" placeholder="Nombre">
+                </ion-input></ion-row
+            ></ion-grid>
+          </ion-item>
+          <!-- Email -->
+          <ion-item lines="none">
+            <ion-grid>
+              <ion-row class="label-wrap">
+                <ion-label>Email</ion-label>
+              </ion-row>
+              <ion-row>
+                <ion-input formControlName="email" placeholder="Email">
+                </ion-input></ion-row
+            ></ion-grid>
+          </ion-item>
+           <!-- Nombre -->
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row class="label-wrap">
+              <ion-label>Nombre</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-input formControlName="name" placeholder="Nombre">
+              </ion-input></ion-row
+          ></ion-grid>
+        </ion-item>
+        <!-- Apelido 1 -->
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row class="label-wrap">
+              <ion-label>Apellidos</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-input formControlName="surname1" placeholder="Primer apellido">
+              </ion-input></ion-row
+          ></ion-grid>
+        </ion-item>
+        <!-- Apellido 2 -->
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row>
+              <ion-input formControlName="surname2" placeholder=" Segundo apellido">
+              </ion-input></ion-row
+          ></ion-grid>
+        </ion-item>
+        <!-- Juegos -->
+        <ion-list>
+          <ion-item lines="none">
+            <ion-grid>
+              <ion-row>
+                <ion-label>Juegos</ion-label>
+              </ion-row>
+              <ion-row>
+                <ion-select formControlName="id_juego" placeholder="Selecciona que juegos te interesan" [multiple]="true">
+                  <ion-select-option value="1">Street Fighter</ion-select-option>
+                  <ion-select-option value="2">Guity Gear</ion-select-option>
+                  <ion-select-option value="3">Proyect:L</ion-select-option>
+                </ion-select></ion-row>
+             </ion-grid>
+          </ion-item>
+       </ion-list>
+          <!-- Contraseña -->
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row class="label-wrap">
+              <ion-label>Contraseña</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-input formControlName="password" placeholder="Contraseña"> </ion-input> </ion-row
+          ></ion-grid>
+        </ion-item>
+        <!-- Confirmar Contraseña -->
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row class="label-wrap">
+              <ion-label>Confirmar Contraseña</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-input formControlName="password_confirmation" placeholder="Confirmar Contraseña">
+              </ion-input> </ion-row
+          ></ion-grid>
+        </ion-item>
+        <!-- Guardar cambios -->
+        <div class="butt-wrap">
+          <div class="checkbox-wrap">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="2" class="checkbox"> <ion-checkbox></ion-checkbox> </ion-col>
+                <ion-col class="text">
+                  <p>He leído y acepto los términos y condiciones</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-button expand="block" type="submit" >Registarme</ion-button>
+              </ion-row>
+            </ion-grid>
+          </div></div>
+        </ion-grid>
+      </form>
+    </div>
+</ion-content>
