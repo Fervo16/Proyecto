@@ -1,9 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-button  slot="start" >
+        <ion-icon src="assets/icon/flecha.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+    <h2 routerLink="/register" slot="end">Ir al registro</h2>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="logo ion-text-center">
+    <img src="" alt="">
+  </div>
+  <div class="overlay"></div>
+
+  <div class="form-wrapper" >
+    <!-- text-center> -->
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+
+
+      <ion-item  lines="none" style="border-bottom: 2px solid black;">
+        <ion-label>Email</ion-label>
+        <ion-input type="email"placeholder="Carlota Espin" formControlName="email" ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>Contraseña</ion-label>
+          <ion-input style="margin: 1vw 0vw 0vw 15vw;" type="password" formControlName="password" placeholder="Escribe tu contraseña"></ion-input>
+      </ion-item>     
+
+
+      <p class="title ion-text-center" >He olvidado mi contraseña, enviar mail</p> 
+      <ion-button expand="block" type="submit" [disabled]="!form.valid" >Entrar</ion-button>
+    </form>
+  </div>
+
+  
+
 
 </ion-content>
