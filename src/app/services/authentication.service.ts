@@ -9,11 +9,18 @@ const TOKEN_KEY = 'auth-token';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private _storage: Storage | null = null;
 
   public authenticationState = new BehaviorSubject('');
 
   constructor(private storage: Storage, private plt: Platform) {
+    
     this.checkToken();
+  }
+  async init() {
+    // If using, define drivers here: await this.storage.defineDriver(/*...*/);
+    const storage = await this.storage.create();
+    this._storage = storage;
   }
 
   public checkToken() {
@@ -25,7 +32,7 @@ export class AuthenticationService {
     })
   }
 
-  public login(token: string): Promise<void> {
+  public login(token:any): Promise<void> {
     return this.storage.set(TOKEN_KEY, token).then(() => {
       this.authenticationState.next(token);
     });

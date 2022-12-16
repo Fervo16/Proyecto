@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
  
   public ngOnInit(): void {
      this.menuCtrl.enable(false);
+     
   }
 
   public submitForm(): void {
