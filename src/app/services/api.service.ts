@@ -78,7 +78,7 @@ export class ApiService {
   public updateUser(user: User): any {
     this.userChanges.next(user);
     return this.http.post<User>(
-      environment.apiUrl + "update-user",
+      environment.apiUrl + "user",
       user,
       this.httpOptions
     );
@@ -153,6 +153,12 @@ export class ApiService {
     return this.http.post(
       environment.apiUrl + entity,
       params,
+      this.httpOptions
+    );
+  }
+  public getUsers(id: number): any {
+    return this.http.get(
+      environment.apiUrl + "single" + "/" + id,
       this.httpOptions
     );
   }

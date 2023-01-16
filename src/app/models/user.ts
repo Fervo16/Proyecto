@@ -1,6 +1,7 @@
 export interface User{
     id?: number,
     name?: any,
+    username?: any,
     surname1?: string,
     surname2?: string,
     id_juego?: number,

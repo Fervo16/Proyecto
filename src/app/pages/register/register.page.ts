@@ -44,7 +44,7 @@ import { codeErrors } from 'src/app/utils/utils';
      this.apiService.register(this.form.value).subscribe({
       next: (user: User) =>this.showToast("Usuario registrado"),
       error: (error) => this.showToast(codeErrors(error)),
-      //complete: () =>this.navCtrl.navigateRoot("/login")
+      complete: () =>this.navCtrl.navigateRoot("/login")
     });
       console.log("Usuario registrado");
       

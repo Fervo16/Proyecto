@@ -14,15 +14,11 @@ export class AuthenticationService {
   public authenticationState = new BehaviorSubject('');
 
   constructor(private storage: Storage, private plt: Platform) {
+    this.create();
     
     this.checkToken();
   }
-  async init() {
-    // If using, define drivers here: await this.storage.defineDriver(/*...*/);
-    const storage = await this.storage.create();
-    this._storage = storage;
-  }
-
+  
   public checkToken() {
     this.storage.get(TOKEN_KEY).then((res: string) => {
       console.log(res);
@@ -32,11 +28,13 @@ export class AuthenticationService {
     })
   }
 
-  public login(token:any): Promise<void> {
+  public async login(token:string): Promise<void>{
     return this.storage.set(TOKEN_KEY, token).then(() => {
       this.authenticationState.next(token);
+      //console.log(token);
     });
-  }
+    };
+  
 
   public logout(): Promise<void> {
     return this.storage.remove(TOKEN_KEY).then(() => {
@@ -46,6 +44,12 @@ export class AuthenticationService {
 
   public isAuthenticated(): string {
     return this.authenticationState.value;
+  }
+  public async create() {
+    const storage = await this.storage.create();
+    this._storage = storage;
+    console.log(storage);
+
   }
 
 }

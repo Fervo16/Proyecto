@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { Drivers, Storage } from '@ionic/storage';
 
 
 @NgModule({
@@ -18,9 +19,10 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     AppRoutingModule,
     HttpClientModule,
     IonicStorageModule.forRoot({
-      name: "iberian-fgc",
+      name: 'iberian-fgc',
+     driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage]
     })],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Storage],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
